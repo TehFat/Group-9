@@ -1,12 +1,11 @@
 import React, { useState, useEffect } from "react"; // Import React and hooks for state and side effects
-import SearchBar from "../components/SearchBar"; // Import the SearchBar component
+import SearchBar from "../components/SearchBar"; 
 import { fetchMovies, fetchTopRatedMovies } from "../api/movieApi"; // Import the movie API functions
-import "../styles/Home.css"; // Import the CSS for Home page styling
+import "../styles/Home.css"; 
 
 const Home = ({ onAddToPlaylist }) => {
   const [movies, setMovies] = useState([]); // State to store search results
   const [topRatedMovies, setTopRatedMovies] = useState([]); // State to store top-rated movies
-
   // Fetch top-rated movies on initial component mount
   useEffect(() => {
     const getTopRatedMovies = async () => {
@@ -27,7 +26,7 @@ const Home = ({ onAddToPlaylist }) => {
   const scrollLeft = (id) => {
     const carousel = document.getElementById(id); // Get the carousel element by its ID
     if (carousel) {
-      carousel.scrollBy({ left: -300, behavior: "smooth" }); // Scroll the carousel to the left
+      carousel.scrollBy({ left: -400, behavior: "smooth" }); // Scroll the carousel to the left
     }
   };
 
@@ -35,7 +34,7 @@ const Home = ({ onAddToPlaylist }) => {
   const scrollRight = (id) => {
     const carousel = document.getElementById(id); // Get the carousel element by its ID
     if (carousel) {
-      carousel.scrollBy({ left: 300, behavior: "smooth" }); // Scroll the carousel to the right
+      carousel.scrollBy({ left: 700, behavior: "smooth" }); // Scroll the carousel to the right
     }
   };
 

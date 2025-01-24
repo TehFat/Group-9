@@ -8,6 +8,12 @@
     color: white;
     font-family: 'Poppins', sans-serif;
   }
+  .logo {
+    color: #d00000;
+    font-size: 20px;
+    font-weight: bold;
+   
+  }
   
   .nav-links {
     display: flex;
@@ -17,7 +23,7 @@
   .nav-links a {
     color: white;
     text-decoration: none;
-    font-size: 20px;
+    font-size: 18px;
   }
   
   .nav-links a:hover {

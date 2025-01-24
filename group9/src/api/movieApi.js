@@ -26,7 +26,7 @@ export const fetchTopRatedMovies = async () => {
       "The Godfather",
       "The Dark Knight",
       "Pulp Fiction",
-      "The Lord of the Rings: The Return of the King",
+      "The Lord of the Rings: The Return of the King"
     ];
 
     const promises = topRatedTitles.map((title) =>

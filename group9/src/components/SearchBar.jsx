@@ -1,6 +1,5 @@
-import React, { useState } from "react"; // Import React and useState hook to manage the component's state
-import "../styles/SearchBar.css"; // Import the CSS for styling the SearchBar component
-
+import React, { useState } from "react"; 
+import "../styles/SearchBar.css"; 
 // Define the SearchBar component, receiving `onSearch` as a prop from its parent component
 const SearchBar = ({ onSearch }) => {
   // State to keep track of the input query (movie title) entered by the user

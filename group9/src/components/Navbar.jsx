@@ -1,6 +1,6 @@
 import React, { useState } from "react"; 
 import { Link } from "react-router-dom"; // Import the Link component for navigation
-import "../styles/Navbar.css"; // Import the CSS file for Navbar styling
+import "../styles/Navbar.css";
 
 // Navbar component definition
 const Navbar = () => {
@@ -20,11 +20,8 @@ const Navbar = () => {
       {/* Navigation Links */}
       <div className="nav-links">
         {/* React Router's Link components are used for navigation */}
-        {/* Home link */}
         <Link to="/">Home</Link>
-        {/* Playlist link */}
         <Link to="/playlist">My Playlist</Link>
-        {/* Movies link */}
         <Link to="/movies">Movies</Link>
       </div>
 

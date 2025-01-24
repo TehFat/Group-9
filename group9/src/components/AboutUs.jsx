@@ -1,14 +1,16 @@
 import React from 'react';
 import '../styles/AboutUs.css'; // Create this CSS file for styling
+import "./pages/AboutUs.jsx";
 
-const AboutUs = () => {
+
+function AboutUs() {
   return (
     <div className="about-us-container">
       <h1>About MovieMagic</h1>
-      
+
       <section className="app-origin">
         <h2>Our Story</h2>
-        <p>MovieMagic was born out of a passion for cinema and a desire to revolutionize how people discover and enjoy movies. Founded in 2023 by a team of film enthusiasts and tech innovators, we set out to create an app that brings the magic of movies to your fingertips.</p>
+        <p>MovieMagic was born out of a passion for cinema and a desire to revolutionize how people discover and enjoy movies. Founded in 2025 by a team of film enthusiasts and tech innovators, we set out to create an app that brings the magic of movies to your fingertips.</p>
       </section>
 
       <section className="our-mission">
@@ -38,6 +40,6 @@ const AboutUs = () => {
       </section>
     </div>
   );
-};
+}
 
 export default AboutUs;

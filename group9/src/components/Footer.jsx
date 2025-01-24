@@ -7,8 +7,9 @@ const Footer = () => {
     <footer className="footer">
       {/* Left Section: About Us */}
       <div className="footer-left">
-        <h4>About Us</h4>
-        <p className="footer-text">Streamit is your ultimate destination for 
+      <h4><a href="/about-us" className="footer-about-link">About Us</a></h4>
+        <p className="footer-text">
+            Streamit is your ultimate destination for 
              streaming movies and TV shows.</p>
       </div>
 

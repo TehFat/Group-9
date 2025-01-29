@@ -1,0 +1,48 @@
+/* App.css */
+
+.app-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* Ensures the app takes the full viewport height */
+  font-family: 'Poppins', sans-serif;
+}
+
+footer {
+  margin-top: auto; /* Pushes footer to the bottom of the page */
+  background-color: #000000; /* Match the style with Navbar */
+  color: white;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+footer .footer-links {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+footer .footer-links a {
+  color: white;
+  text-decoration: none;
+}
+
+footer .footer-links a:hover {
+  text-decoration: underline;
+}
+
+footer .social-links {
+  display: flex;
+  gap: 10px;
+}
+
+footer .social-links img {
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+}
+
+footer .social-links img:hover {
+  opacity: 0.8;
+}

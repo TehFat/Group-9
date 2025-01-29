@@ -1,0 +1,140 @@
+/* General styles for home container */
+.home-container {
+    background-image: url("../images/bg pic.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+    color: white;
+    padding: 20px;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Carousel container */
+.carousel-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    width: 90%; /* Adjusts width dynamically */
+    margin: 20px auto;
+}
+
+/* Carousel and movie items */
+.carousel {
+    display: flex;
+    gap: 10px;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+    padding: 10px;
+    width: 100%;
+}
+
+.carousel-item {
+    flex: 0 0 300px;
+    text-align: center;
+}
+
+.movie-poster {
+    width: 300px;
+    height: 450px;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+.movie-title {
+    font-size: 14px;
+    margin-top: 10px;
+    color: white;
+}
+.add-to-playlist-btn {
+    background-color: #ff5722;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+.add-to-playlist-btn:hover {
+background-color: #ff5722;
+}
+
+/* Scroll buttons */
+.scroll-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    z-index: 10;
+    border-radius: 50%;
+}
+
+.scroll-button.left {
+    left: 10px;
+}
+
+.scroll-button.right {
+    right: 10px;
+}
+
+.scroll-button:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* Hide scrollbar */
+.carousel::-webkit-scrollbar {
+    display: none;
+}
+
+/* Responsive Design */
+
+/* For medium screens (e.g., tablets) */
+@media (max-width: 768px) {
+    .carousel-container {
+        width: 95%; /* Adjust carousel width */
+    }
+
+    .carousel-item {
+        flex: 0 0 250px; /* Smaller items for smaller screens */
+    }
+
+    .movie-poster {
+        width: 250px;
+        height: 375px; /* Adjust height proportionally */
+    }
+
+    .movie-title {
+        font-size: 12px; /* Smaller font for smaller screens */
+    }
+}
+
+/* For small screens (e.g., mobile phones) */
+@media (max-width: 480px) {
+    .carousel-container {
+        width: 100%; /* Full width for mobile */
+    }
+
+    .carousel-item {
+        flex: 0 0 200px; /* Smaller items for mobile */
+    }
+
+    .movie-poster {
+        width: 200px;
+        height: 300px; /* Adjust height proportionally */
+    }
+
+    .movie-title {
+        font-size: 10px; /* Smaller font for smaller screens */
+    }
+
+    .scroll-button {
+        padding: 8px; /* Smaller buttons */
+    }
+}

@@ -26,6 +26,9 @@ export const fetchTopRatedMovies = async () => {
       "The Godfather",
       "The Dark Knight",
       "Pulp Fiction",
+      "Inception",
+      "Interstellar",
+      "The Prestige"
 
     ];
 
@@ -77,7 +80,4 @@ export const fetchMovieDetails = async (imdbID) => {
   }
 };
 
-    return [];
-  }
-};
-
+  

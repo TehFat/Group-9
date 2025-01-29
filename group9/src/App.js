@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar"; // Navbar component (already completed by you)
 import Home from "./pages/Home"; // Your home page component (already completed by you)
 import Footer from "./components/Footer"; // Footer component (already completed by you)
+import Playlist from "./pages/Playlist";
 
 // This is the main App component where routing is handled
 const App = () => {
@@ -28,13 +29,23 @@ const App = () => {
         {/* Routes for the home page (already completed by you) */}
         <Routes>
           {/* Home Route */}
-          <Route path="/" element={<Home onAddToPlaylist={handleAddToPlaylist} />} />
-          
-          {/* 
+          <Route
+            path="/"
+            element={<Home onAddToPlaylist={handleAddToPlaylist} />}
+          />
+
+          {
+            /* 
             we can add more routes here for other pages our team will work on.
             For example, if we are adding a Playlist page, the route would look like:
-            <Route path="/playlist" element={<Playlist playlist={playlist} />} />
-          */}
+            <Route path="/playlist" element={<Playlist playlist={playlist} />} /> */
+            <Route
+              path="/playlist"
+              element={
+                <Playlist playlist={playlist} setPlaylist={setPlaylist} />
+              }
+            />
+          }
 
           {/* 
             If we want to add another page in the future, 

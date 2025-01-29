@@ -1,0 +1,104 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+.playlist-page {
+  min-height: 80vh;
+  background: linear-gradient(to top right, #3a3a4a, #4a4a5a, #5a6a7a),
+    radial-gradient(
+      circle at top right,
+      rgba(255, 255, 255, 0.1),
+      transparent 70%
+    );
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+  margin: 0;
+  padding: 20px 0 0 0;
+}
+.playlist-container {
+  display: flex;
+  gap: 40px;
+  flex-wrap: wrap;
+  margin: 0 40px 0 40px;
+}
+.playlist-header {
+  color: white;
+  margin: 15px 0 30px 50px;
+  font-weight: 100;
+}
+.empty-playlist {
+  color: white;
+  font-weight: 100;
+  margin: 15px 0 30px 50px;
+}
+.playlist-movie-card {
+  width: 225px;
+  max-height: 400px;
+  margin: 10px;
+  background-color: transparent;
+  position: relative;
+}
+.playlist-movie-poster {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.1);
+}
+.rating-button {
+  width: 45px;
+  height: 45px;
+  border-radius: 50px;
+  border: none;
+  color: rgb(109, 116, 13);
+  background-color: rgb(255, 234, 0);
+  position: absolute;
+  top: 15.6rem;
+  right: 5px;
+  z-index: 10;
+  cursor: pointer;
+  box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.1);
+}
+.playlist-movie-title {
+  font-size: 14px;
+  font-weight: bold;
+  margin-top: 15px;
+  text-align: start;
+  color: white;
+  margin-left: 2px;
+  line-height: 0;
+}
+.playlist-movie-year {
+  font-size: 14px;
+  color: #b6b6b6;
+  text-align: start;
+  margin-left: 2px;
+  line-height: 0;
+}
+.movie-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+}
+.playlist-delete-button {
+  background: none;
+  border-radius: 50px;
+  cursor: pointer;
+  padding: 0;
+  margin: 0;
+  margin-right: 10px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: end;
+  border: none;
+  transition: transsform 0.3s ease-in-out;
+}
+.playlist-delete-button:hover {
+  transform: scale(1.04);
+}
+.delete-icon {
+  width: 25px;
+  height: 25px;
+  background-color: transparent;
+  border-radius: 50px;
+}

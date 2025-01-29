@@ -26,7 +26,7 @@ export const fetchTopRatedMovies = async () => {
       "The Godfather",
       "The Dark Knight",
       "Pulp Fiction",
-      "The Lord of the Rings: The Return of the King"
+
     ];
 
     const promises = topRatedTitles.map((title) =>
@@ -42,6 +42,7 @@ export const fetchTopRatedMovies = async () => {
     return responses.map((response) => response.data);
   } catch (error) {
     console.error("Error fetching top-rated movies:", error);
+
     return [];
   }
 };
@@ -75,3 +76,8 @@ export const fetchMovieDetails = async (imdbID) => {
     return null;
   }
 };
+
+    return [];
+  }
+};
+

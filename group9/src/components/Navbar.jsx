@@ -23,6 +23,7 @@ const Navbar = () => {
         <Link to="/">Home</Link>
         <Link to="/playlist">My Playlist</Link>
         <Link to="/movies">Movies</Link>
+
       </div>
 
       {/* Subscribe Button */}

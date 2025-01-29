@@ -26,7 +26,7 @@ export const fetchTopRatedMovies = async () => {
       "The Godfather",
       "The Dark Knight",
       "Pulp Fiction",
-      "The Lord of the Rings: The Return of the King"
+
     ];
 
     const promises = topRatedTitles.map((title) =>
@@ -42,6 +42,41 @@ export const fetchTopRatedMovies = async () => {
     return responses.map((response) => response.data);
   } catch (error) {
     console.error("Error fetching top-rated movies:", error);
+
+    return [];
+  }
+};
+
+export const fetchMoviesByGenre = async (genre) => {
+  try {
+    const response = await axios.get(BASE_URL, {
+      params: {
+        apikey: API_KEY,
+        s: genre, // Query by genre
+      },
+    });
+    return response.data.Search || [];
+  } catch (error) {
+    console.error(`Error fetching ${genre} movies:`, error);
+    return [];
+  }
+};
+
+export const fetchMovieDetails = async (imdbID) => {
+  try {
+    const response = await axios.get(BASE_URL, {
+      params: {
+        apikey: API_KEY,
+        i: imdbID, // Fetch by IMDb ID
+      },
+    });
+    return response.data;
+  } catch (error) {
+    console.error(`Error fetching movie details for ${imdbID}:`, error);
+    return null;
+  }
+};
+
     return [];
   }
 };

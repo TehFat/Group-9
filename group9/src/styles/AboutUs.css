@@ -1,61 +1,131 @@
+
 .about-us-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 20px;
-  }
-  
-  .about-us-title {
-    text-align: center;
-    margin-bottom: 30px;
-  }
-  
-  .about-us-section {
-    margin-bottom: 40px;
-  }
-  
-  .section-title {
-    margin-bottom: 15px;
-  }
-  
-  .feature-list {
-    padding-left: 20px;
-  }
-  
-  @media (max-width: 768px) {
-    .about-us-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.about-us-title {
+  text-align: center;
+  margin-bottom: 30px;
+  font-size: 28px;
+  font-weight: bold;
+  color: #333;
+}
+
+.about-us-section {
+  margin-bottom: 40px;
+}
+
+.section-title {
+  margin-bottom: 15px;
+  font-size: 22px;
+  font-weight: bold;
+  color: #444;
+}
+
+/* Feature List */
+.feature-list {
+  padding-left: 20px;
+}
+
+.feature-list li {
+  margin-bottom: 10px;
+}
+
+/* Team Section */
+.our-team ul {
+  list-style: none;
+  padding: 0;
+}
+
+.our-team li {
+  margin-bottom: 10px;
+}
+
+.our-team a {
+  text-decoration: none;
+  color: #007bff; /* GitHub link color */
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+.our-team a:hover {
+  color: #ff4500; /* Change color on hover */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .about-us-container {
       padding: 15px;
-    }
-  
-    .about-us-title {
+  }
+
+  .about-us-title {
       font-size: 24px;
-    }
-  
-    .section-title {
+  }
+
+  .section-title {
       font-size: 20px;
-    }
-  
-    .about-us-section p,
-    .feature-list li {
+  }
+
+  .about-us-section p,
+  .feature-list li {
       font-size: 14px;
-    }
   }
-  
-  @media (max-width: 480px) {
-    .about-us-container {
+
+  .our-team li {
+      font-size: 14px;
+  }
+}
+/* Styling the GitHub link and icon */
+.github-link {
+  text-decoration: none;
+  margin-left: 10px; /* Adds space between name and GitHub icon */
+  display: inline-flex;
+  align-items: center;
+}
+
+.github-link svg {
+  fill: #333; /* Dark color for the GitHub icon */
+  transition: fill 0.3s ease;
+}
+
+.github-link:hover svg {
+  fill: #007bff; /* Blue color when hovered */
+}
+
+.our-team li {
+  font-size: 16px;
+  margin-bottom: 15px;
+  display: flex;
+  align-items: center;
+}
+
+.our-team li a {
+  margin-left: 10px;
+  font-size: 16px;
+}
+
+
+@media (max-width: 480px) {
+  .about-us-container {
       padding: 10px;
-    }
-  
-    .about-us-title {
-      font-size: 22px;
-    }
-  
-    .section-title {
-      font-size: 18px;
-    }
-  
-    .about-us-section p,
-    .feature-list li {
-      font-size: 13px;
-    }
   }
-  
+
+  .about-us-title {
+      font-size: 22px;
+  }
+
+  .section-title {
+      font-size: 18px;
+  }
+
+  .about-us-section p,
+  .feature-list li {
+      font-size: 13px;
+  }
+
+  .our-team li {
+      font-size: 13px;
+  }
+}

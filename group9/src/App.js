@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Navbar from "./components/Navbar"; // Navbar component
-import Home from "./pages/Home"; // Home page component
-import Footer from "./components/Footer"; // Footer component
-import Playlist from "./pages/Playlist"; // Playlist page component
+import Navbar from "./components/Navbar"; 
+import Home from "./pages/Home"; 
+import Footer from "./components/Footer"; 
+import Playlist from "./pages/Playlist"; 
 import AboutUs from "./pages/AboutUs"; 
 import MoviesPage from "./pages/MoviePage";
 
@@ -23,25 +23,25 @@ const App = () => {
   return (
     <Router>
       <div className="app-container">
-        {/* Navbar Component */}
+       
         <Navbar />
 
-        {/* Routes */}
+       
         <Routes>
-          {/* Home Route */}
+          
           <Route path="/" element={<Home onAddToPlaylist={handleAddToPlaylist} />} />
 
-          {/* Playlist Route */}
+         
           <Route path="/playlist" element={<Playlist playlist={playlist} setPlaylist={setPlaylist} />} />
-          <Route path="/movies" element={<MoviesPage />} />
+          <Route path="/movies" element={<MoviesPage onAddToPlaylist={handleAddToPlaylist} />} />
 
 
 
-          {/* About Us Route */}
+          
           <Route path="/aboutUs" element={<AboutUs />} />
         </Routes>
 
-        {/* Footer Component */}
+        
         <Footer />
       </div>
     </Router>

@@ -7,6 +7,7 @@
   color: #ff4500;
   text-decoration: none; 
 }
+
 .footer {
   display: flex;
   justify-content: space-between;
@@ -63,17 +64,63 @@
   transform: scale(1.2);
 }
 
+/* App Buttons (Google Play & App Store) */
 .app-links {
   display: flex;
   gap: 15px;
+  justify-content: center; 
+  align-items: center;
+}
+
+.app-link {
+  text-decoration: none;
+  display: flex;
+  align-items: center;
 }
 
 .app-icon {
   width: 100px;
   height: auto;
+  transition: transform 0.2s ease-in-out;
 }
 
-/* Media Queries for Responsiveness */
+.app-icon:hover {
+  transform: scale(1.1);
+}
+
+/* SVG Styling */
+.app-button {
+  fill: black;
+  transition: fill 0.3s ease-in-out;
+}
+
+.app-link:hover .app-button {
+  fill: #ff4500; /* Dark Gray on Hover */
+}
+
+.app-text {
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  font-weight: bold;
+  fill: white;
+}
+
+/* Space between icon and text */
+.play-icon {
+  fill: white;
+  transform: translateX(-5px); /* Moves icon left for spacing */
+  transition: transform 0.3s ease-in-out;
+}
+
+.app-icon-circle {
+  fill: white;
+}
+
+.app-link:hover .play-icon {
+  transform: translateX(-5px) scale(1.1);
+}
+
+/* Responsive Design */
 @media (max-width: 768px) {
   .footer {
     flex-direction: column; /* Stack sections vertically */
@@ -113,6 +160,6 @@
   }
 
   .app-icon {
-    width: 80px; /* Adjust app icon size */
+    width: 120px; /* Adjust app icon size */
   }
 }

@@ -1,17 +1,17 @@
 .navbar {
   display: flex;
-  justify-content: space-between; /* Pushes elements to both ends */
+  justify-content: space-between; 
   align-items: center;
   padding: 10px 20px;
   background-color: #000814;
   color: white;
-  font-family: 'Poppins', sans-serif;
+  font-family: 'vogue', 'Poppins', sans-serif;
 }
 
 /* Logo Styling (Left Side) */
 .logo {
   color: #d00000;
-  font-size: 22px;
+  font-size: 28px;
   font-weight: bold;
   cursor: pointer;
 }
@@ -32,7 +32,7 @@
 }
 
 .nav-links a:hover {
-  text-decoration: underline;
+  /* text-decoration: underline; */
   color: #ff4d4d;
 }
 

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { fetchMoviesByGenre, fetchMovieDetails } from '../api/movieApi'; // Correct path
+import { fetchMoviesByGenre, fetchMovieDetails } from '../api/movieApi'; // Ensure correct paths
 import '../styles/MovieCategories.css';
 
 const MovieCategories = () => {
@@ -7,17 +7,15 @@ const MovieCategories = () => {
   const [selectedMovie, setSelectedMovie] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [isModalOpen, setIsModalOpen] = useState(false); // Modal state
 
   const loadMovies = async (genre) => {
     setLoading(true);
     setError(null);
     try {
-      console.log(`Fetching ${genre} movies...`);
       const result = await fetchMoviesByGenre(genre); // Fetch movies based on genre
-      console.log(`Fetched ${genre} movies:`, result);
       setMovies(result);
     } catch (err) {
-      console.error(`Error fetching ${genre} movies:`, err);
       setError(`Failed to load ${genre} movies. Please try again.`);
     } finally {
       setLoading(false);
@@ -25,7 +23,7 @@ const MovieCategories = () => {
   };
 
   useEffect(() => {
-    loadMovies('action'); // Default to Action genre
+    loadMovies('action'); // Default genre to Action
   }, []);
 
   const handleGenreChange = (genre) => {
@@ -36,16 +34,19 @@ const MovieCategories = () => {
     setLoading(true);
     setError(null);
     try {
-      console.log(`Fetching details for movie ${imdbID}...`);
       const details = await fetchMovieDetails(imdbID);
-      console.log(`Fetched details for movie ${imdbID}:`, details);
       setSelectedMovie(details);
+      setIsModalOpen(true); // Open modal when a movie is selected
     } catch (err) {
-      console.error(`Error fetching details for movie ${imdbID}:`, err);
       setError("Failed to load movie details. Please try again.");
     } finally {
       setLoading(false);
     }
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false); // Close modal
+    setSelectedMovie(null);
   };
 
   if (loading) return <div>Loading...</div>;
@@ -54,35 +55,45 @@ const MovieCategories = () => {
   return (
     <div className="movie-categories-container">
       <h2>Movie Categories</h2>
-      
-      {/* Genre buttons */}
       <div className="genre-buttons">
-        <button onClick={() => handleGenreChange('action')}>Action</button>
-        <button onClick={() => handleGenreChange('comedy')}>Comedy</button>
-        <button onClick={() => handleGenreChange('drama')}>Drama</button>
-        <button onClick={() => handleGenreChange('horror')}>Horror</button>
+        {['action', 'comedy', 'drama', 'horror'].map(genre => (
+          <button key={genre} onClick={() => handleGenreChange(genre)}>
+            {genre.charAt(0).toUpperCase() + genre.slice(1)}
+          </button>
+        ))}
       </div>
 
       <div className="movie-list">
         <h3>Movies</h3>
-        {/* Display movies in a row with horizontal scroll */}
         {movies.map((movie) => (
           <div
             key={movie.imdbID}
-            onClick={() => handleMovieSelect(movie.imdbID)}
             className="movie-item"
           >
             <img src={movie.Poster} alt={movie.Title} className="movie-poster" />
             <div className="movie-name">{movie.Title}</div>
+            <button onClick={() => handleMovieSelect(movie.imdbID)} className="movie-info-button">
+              Movie Info
+            </button>
           </div>
         ))}
       </div>
 
-      {selectedMovie && (
-        <div className="movie-details">
-          <h3>Selected Movie Details</h3>
-          <p>{selectedMovie.Title}</p>
-          <p>{selectedMovie.Plot}</p>
+      {/* Modal for movie details */}
+      {isModalOpen && selectedMovie && (
+        <div className="movie-modal">
+          <div className="modal-content">
+            <div className="modal-left">
+              <img src={selectedMovie.Poster} alt={selectedMovie.Title} className="modal-poster" />
+            </div>
+            <div className="modal-right">
+              <h3>{selectedMovie.Title}</h3>
+              <p><strong>Writer:</strong> {selectedMovie.Writer}</p>
+              <p><strong>Year:</strong> {selectedMovie.Year}</p>
+              <p><strong>Description:</strong> {selectedMovie.Plot}</p>
+              <button onClick={closeModal}>Close</button>
+            </div>
+          </div>
         </div>
       )}
     </div>

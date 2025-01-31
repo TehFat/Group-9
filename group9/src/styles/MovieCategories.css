@@ -63,3 +63,21 @@
     margin-top: 8px;
     color: white;
 }
+
+.add-to-playlist {
+    background-color: #ff4500;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    margin-top: 5px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 14px;
+    display: block;
+    width: 100%;
+  }
+  
+  .add-to-playlist:hover {
+    background-color: #d13600;
+  }
+  

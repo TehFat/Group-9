@@ -34,7 +34,7 @@ const Home = ({ onAddToPlaylist }) => {
   const scrollRight = (id) => {
     const carousel = document.getElementById(id); // Get the carousel element by its ID
     if (carousel) {
-      carousel.scrollBy({ left: 700, behavior: "smooth" }); // Scroll the carousel to the right
+      carousel.scrollBy({ left: 600, behavior: "smooth" }); // Scroll the carousel to the right
     }
   };
 

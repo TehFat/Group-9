@@ -1,119 +1,118 @@
 .footer a {
-    color: #fff; 
-    text-decoration: none; 
-  }
-  
-  .footer a:hover {
-    color: #ff4500;
-    text-decoration: none; 
-  }
+  color: #fff; 
+  text-decoration: none; 
+}
+
+.footer a:hover {
+  color: #ff4500;
+  text-decoration: none; 
+}
 .footer {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px 40px;
-    background-color: black;
-    color: #fff;
-    flex-wrap: wrap; /* Allows wrapping on smaller screens */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 40px;
+  background-color: black;
+  color: #fff;
+  flex-wrap: wrap; /* Allows wrapping on smaller screens */
+}
+
+.footer-left,
+.footer-center,
+.footer-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  flex: 1; /* Allows equal spacing between sections */
+  min-width: 200px; /* Ensures sections don't shrink too much */
+}
+
+.footer-center {
+  align-items: center; /* Center-align content in the middle section */
+}
+
+.footer-links {
+  list-style: none;
+  padding: 0;
+  margin: 5px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.footer-text {
+  font-size: 12px;
+  color: #bbb;
+  margin-top: 10px;
+}
+
+.social-links {
+  display: flex;
+  gap: 15px;
+}
+
+.footer-icon {
+  width: 24px;
+  height: 24px;
+  fill: #fff;
+  transition: transform 0.3s ease, fill 0.3s ease;
+}
+
+.footer-icon:hover {
+  fill: #ff4500;
+  transform: scale(1.2);
+}
+
+.app-links {
+  display: flex;
+  gap: 15px;
+}
+
+.app-icon {
+  width: 100px;
+  height: auto;
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+  .footer {
+    flex-direction: column; /* Stack sections vertically */
+    align-items: center; /* Center-align all sections */
+    text-align: center; /* Center-align text */
+    padding: 20px;
   }
-  
+
   .footer-left,
   .footer-center,
   .footer-right {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    flex: 1; /* Allows equal spacing between sections */
-    min-width: 200px; /* Ensures sections don't shrink too much */
+    align-items: center; /* Center-align each section */
+    margin-bottom: 20px; /* Add spacing between stacked sections */
   }
-  
-  .footer-center {
-    align-items: center; /* Center-align content in the middle section */
-  }
-  
+
   .footer-links {
-    list-style: none;
-    padding: 0;
-    margin: 5px 0;
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
+    align-items: center; /* Center-align links */
   }
-  
-  .footer-text {
-    font-size: 12px;
-    color: #bbb;
-    margin-top: 10px;
-  }
-  
+
   .social-links {
-    display: flex;
-    gap: 15px;
+    justify-content: center; /* Center social links */
   }
-  
-  .footer-icon {
-    width: 24px;
-    height: 24px;
-    fill: #fff;
-    transition: transform 0.3s ease, fill 0.3s ease;
-  }
-  
-  .footer-icon:hover {
-    fill: #ff4500;
-    transform: scale(1.2);
-  }
-  
+
   .app-links {
-    display: flex;
-    gap: 15px;
+    justify-content: center; /* Center app links */
   }
-  
+}
+
+@media (max-width: 480px) {
+  .footer-text {
+    font-size: 10px; /* Reduce text size for smaller screens */
+  }
+
+  .footer-icon {
+    width: 20px; /* Adjust icon size */
+    height: 20px;
+  }
+
   .app-icon {
-    width: 100px;
-    height: auto;
+    width: 80px; /* Adjust app icon size */
   }
-  
-  /* Media Queries for Responsiveness */
-  @media (max-width: 768px) {
-    .footer {
-      flex-direction: column; /* Stack sections vertically */
-      align-items: center; /* Center-align all sections */
-      text-align: center; /* Center-align text */
-      padding: 20px;
-    }
-  
-    .footer-left,
-    .footer-center,
-    .footer-right {
-      align-items: center; /* Center-align each section */
-      margin-bottom: 20px; /* Add spacing between stacked sections */
-    }
-  
-    .footer-links {
-      align-items: center; /* Center-align links */
-    }
-  
-    .social-links {
-      justify-content: center; /* Center social links */
-    }
-  
-    .app-links {
-      justify-content: center; /* Center app links */
-    }
-  }
-  
-  @media (max-width: 480px) {
-    .footer-text {
-      font-size: 10px; /* Reduce text size for smaller screens */
-    }
-  
-    .footer-icon {
-      width: 20px; /* Adjust icon size */
-      height: 20px;
-    }
-  
-    .app-icon {
-      width: 80px; /* Adjust app icon size */
-    }
-  }
-  
+}

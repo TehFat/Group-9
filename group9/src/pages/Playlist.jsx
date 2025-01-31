@@ -1,14 +1,4 @@
-<<<<<<< HEAD
-import React from 'react'
 
-const Playlist = () => {
-  return (
-    <div>Playlist</div>
-  )
-}
-
-export default Playlist
-=======
 import React from "react";
 import "../styles/Playlist.css";
 
@@ -53,4 +43,5 @@ const Playlist = ({ playlist, setPlaylist }) => {
 };
 
 export default Playlist;
->>>>>>> main
+
+

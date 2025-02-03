@@ -105,7 +105,7 @@ const Playlist = ({ playlist, setPlaylist }) => {
       </div>
       {isModalOpen && (
         <div className="modal-overlay">
-          <div className="modal-content">
+          <div className="playlist-modal-content">
             <button
               className="playlist-close-button"
               onClick={() => setIsModalOpen(false)}

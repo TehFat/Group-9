@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
-import { fetchMoviesByGenre, fetchMovieDetails } from "../api/movieApi"; 
+import { fetchMoviesByGenre, fetchMovieDetails } from "../api/movieApi"; // Ensure correct paths
 import AddToPlaylistButton from "../components/AddToPlaylistButton"; // Import button
+import { FaInfoCircle } from 'react-icons/fa'; // Import the Info icon
 import "../styles/MovieCategories.css";
 
 const MoviesPage = ({ onAddToPlaylist }) => {
@@ -54,18 +55,19 @@ const MoviesPage = ({ onAddToPlaylist }) => {
                   alt={movie.Title}
                   className="movie-poster"
                 />
-                {/* <p className="movie-title">{movie.Title}</p> */}
-                {/* Add movie info button */}
-                <button
-                  onClick={() => handleMovieSelect(movie.imdbID)}
-                  className="movie-info-button"
-                >
-                  Movie Info
-                </button>
-                <AddToPlaylistButton
-                  movie={movie}
-                  onAddToPlaylist={onAddToPlaylist}
-                />
+                <div className="movie-actions">
+                  {/* Replace the "Movie Info" button with the FaInfoCircle icon */}
+                  <button
+                    onClick={() => handleMovieSelect(movie.imdbID)}
+                    className="movie-info-icon"
+                  >
+                    <FaInfoCircle className="info-icon" />
+                  </button>
+                  <AddToPlaylistButton
+                    movie={movie}
+                    onAddToPlaylist={onAddToPlaylist}
+                  />
+                </div>
               </div>
             ))}
           </div>

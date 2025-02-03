@@ -91,7 +91,7 @@ const MovieCategories = () => {
               <p><strong>Writer:</strong> {selectedMovie.Writer}</p>
               <p><strong>Year:</strong> {selectedMovie.Year}</p>
               <p><strong>Description:</strong> {selectedMovie.Plot}</p>
-              <button onClick={closeModal}>Close</button>
+              <button  onClick={closeModal}>Close</button>
             </div>
           </div>
         </div>

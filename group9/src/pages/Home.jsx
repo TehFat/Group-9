@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import SearchBar from "../components/SearchBar";
 import AddToPlaylistButton from "../components/AddToPlaylistButton"; // Import Add to Playlist button
 import { fetchMovies, fetchTopRatedMovies } from "../api/movieApi";
+import MovieTrailers from "../components/MovieTrailers";
 import "../styles/Home.css";
 
 const Home = ({ onAddToPlaylist }) => {
@@ -21,7 +22,7 @@ const Home = ({ onAddToPlaylist }) => {
     setMovies(fetchedMovies || []);
   };
 
-  // 🎬 Function to Scroll Left
+  //  Function to Scroll Left
   const scrollLeft = (id) => {
     const carousel = document.getElementById(id);
     if (carousel) {
@@ -29,7 +30,7 @@ const Home = ({ onAddToPlaylist }) => {
     }
   };
 
-  // 🎬 Function to Scroll Right
+  //  Function to Scroll Right
   const scrollRight = (id) => {
     const carousel = document.getElementById(id);
     if (carousel) {
@@ -41,7 +42,7 @@ const Home = ({ onAddToPlaylist }) => {
     <div className="home-container">
       <SearchBar onSearch={handleSearch} />
 
-      {/*  Search Results Section */}
+      {/* 🔍 Search Results Section */}
       {movies.length > 0 && (
         <>
           <h2 className="section-heading">Search Results</h2>
@@ -84,7 +85,9 @@ const Home = ({ onAddToPlaylist }) => {
           ▶
         </button>
       </div>
+      <MovieTrailers />
     </div>
+   
   );
 };
 

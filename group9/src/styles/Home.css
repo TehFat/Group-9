@@ -7,11 +7,18 @@
     min-height: 100vh;
     color: white;
     padding: 20px;
-    font-family: 'vogue', 'Poppins', sans-serif;
-}
-
-/* Carousel container */
-.carousel-container {
+    font-family: 'Poppins', sans-serif;
+  }
+  .section-heading {
+    color: #d00000;
+    text-align: left;
+    font-size: 2em;
+   font-weight: 900;
+  }
+  
+  
+  /* Carousel container */
+  .carousel-container {
     position: relative;
     display: flex;
     align-items: center;
@@ -19,41 +26,40 @@
     overflow: hidden;
     width: 90%; 
     margin: 20px auto;
-}
-
-/* Carousel and movie items */
-.carousel {
+  }
+  
+  /* Carousel and movie items */
+  .carousel {
     display: flex;
-    gap: 5px;
+    gap: 10px; /* Adjust gap for better spacing */
     overflow-x: auto;
     scroll-behavior: smooth;
     padding: 10px;
     width: 100%;
     white-space: nowrap; 
-}
-
-.carousel-item {
+  }
+  
+  .carousel-item {
     flex: 0 0 300px;
     text-align: center;
     scroll-snap-align: start;
-}
-
-.movie-poster {
+  }
+  
+  .movie-poster {
     width: 300px;
     height: 450px;
     object-fit: cover;
     border-radius: 5px;
-}
-
-.movie-title {
+  }
+  
+  .movie-title {
     font-size: 14px;
     margin-top: 10px;
     color: white;
-}
-
-
-/* Scroll buttons */
-.scroll-button {
+  }
+  
+  /* Scroll buttons */
+  .scroll-button {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
@@ -64,66 +70,160 @@
     cursor: pointer;
     z-index: 10;
     border-radius: 50%;
-}
-
-.scroll-button.left {
+  }
+  
+  .scroll-button.left {
     left: 10px;
-}
-
-.scroll-button.right {
+  }
+  
+  .scroll-button.right {
     right: 10px;
-}
-
-.scroll-button:hover {
+  }
+  
+  .scroll-button:hover {
     background-color: rgba(0, 0, 0, 0.8);
-}
-
-/* Hide scrollbar */
-.carousel::-webkit-scrollbar {
+  }
+  
+  /* Hide scrollbar */
+  .carousel::-webkit-scrollbar {
     display: none;
-}
-
-
-/* For medium screens (e.g., tablets) */
-@media (max-width: 768px) {
+  }
+  
+  /* Movie Trailers Section Styles */
+  .trailer-container {
+    padding: 20px;
+    text-align: center;
+  }
+  
+  .trailer-wrapper {
+    position: relative;
+    width: 100%;
+  }
+  
+  .trailer-title {
+    font-size: 1.2rem;
+    margin-top: 10px;
+    color: #fff;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+  }
+  
+  .trailer-carousel-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    width: 90%; 
+    margin: 20px auto;
+  }
+  
+  .trailer-carousel {
+    display: flex;
+    gap: 20px;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+  }
+  
+  .trailer-carousel::-webkit-scrollbar {
+    display: none; /* Hide scrollbar */
+  }
+  
+  .trailer-carousel-item {
+    flex: 0 0 100%; /* Set width to 100% for the trailer items */
+    max-width: 600px; /* Max width for the trailers */
+    position: relative;
+  }
+  
+  .scroll-button-trailer {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    border: none;
+    font-size: 2rem;
+    padding: 10px;
+    cursor: pointer;
+    z-index: 10;
+  }
+  
+  .scroll-button-trailer.left {
+    left: 10px;
+  }
+  
+  .scroll-button-trailer.right {
+    right: 10px;
+  }
+  
+  .scroll-button-trailer:hover {
+    background: rgba(0, 0, 0, 0.8);
+  }
+  
+  /* For medium screens (e.g., tablets) */
+  @media (max-width: 768px) {
     .carousel-container {
-        width: 95%; /* Adjust carousel width */
+      width: 95%; /* Adjust carousel width */
     }
-
+  
     .carousel-item {
-        flex: 0 0 250px; /* Smaller items for smaller screens */
+      flex: 0 0 250px; /* Smaller items for smaller screens */
     }
-
+  
     .movie-poster {
-        width: 250px;
-        height: 375px; /* Adjust height proportionally */
+      width: 250px;
+      height: 375px; /* Adjust height proportionally */
     }
-
+  
     .movie-title {
-        font-size: 12px; /* Smaller font for smaller screens */
+      font-size: 12px; /* Smaller font for smaller screens */
     }
-}
-
-/* For small screens (e.g., mobile phones) */
-@media (max-width: 480px) {
+  
+    .trailer-carousel-container {
+      width: 95%;
+    }
+  
+    .trailer-carousel-item {
+      flex: 0 0 250px; /* Smaller trailer items for smaller screens */
+    }
+  
+    .scroll-button-trailer {
+      font-size: 1.5rem; /* Smaller scroll buttons */
+    }
+  }
+  
+  /* For small screens (e.g., mobile phones) */
+  @media (max-width: 480px) {
     .carousel-container {
-        width: 100%; /* Full width for mobile */
+      width: 100%; /* Full width for mobile */
     }
-
+  
     .carousel-item {
-        flex: 0 0 200px; /* Smaller items for mobile */
+      flex: 0 0 200px; /* Smaller items for mobile */
     }
-
+  
     .movie-poster {
-        width: 200px;
-        height: 300px; /* Adjust height proportionally */
+      width: 200px;
+      height: 300px; 
     }
-
+  
     .movie-title {
-        font-size: 10px; /* Smaller font for smaller screens */
+      font-size: 10px; 
     }
-
+  
     .scroll-button {
-        padding: 8px; /* Smaller buttons */
+      padding: 8px; 
     }
-}
+  
+    .trailer-carousel-container {
+      width: 100%;
+    }
+  
+    .trailer-carousel-item {
+      flex: 0 0 200px; /* Smaller trailer items for mobile */
+    }
+  
+    .scroll-button-trailer {
+      font-size: 1.5rem; /* Smaller buttons for mobile */
+    }
+  }
+  

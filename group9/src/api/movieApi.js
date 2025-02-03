@@ -20,7 +20,7 @@ export const fetchMovies = async (query) => {
 
 export const fetchTopRatedMovies = async () => {
   try {
-    // Replace these titles with highly-rated movie titles
+    
     const topRatedTitles = [
       "The Shawshank Redemption",
       "The Godfather",

@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom"; // Import the Link component for navigation
 import "../styles/Navbar.css";
 
-// Navbar component definition
+
 const Navbar = () => {
   // State to track if the user is subscribed
   const [isSubscribed, setIsSubscribed] = useState(false);
@@ -14,8 +14,8 @@ const Navbar = () => {
 
   return (
     <nav className="navbar">
-      {/* Logo Section */}
-      <div className="logo">🎬 MovieApp</div>
+     
+      <div className="logo">🎬 MovieMagic</div>
       
       {/* Navigation Links */}
       <div className="nav-links">
@@ -23,7 +23,7 @@ const Navbar = () => {
         <Link to="/">Home</Link>
         <Link to="/playlist">My Playlist</Link>
         <Link to="/movies">Movies</Link>
-        <Link to="/aboutUs">About Us</Link>
+       
 
 
       </div>

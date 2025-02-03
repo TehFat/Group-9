@@ -28,4 +28,4 @@ const SearchBar = ({ onSearch }) => {
   );
 };
 
-export default SearchBar; // Export the SearchBar component for use in other parts of the application
+export default SearchBar; 

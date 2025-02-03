@@ -1,6 +1,7 @@
 
 import React from "react";
-import "../styles/Footer.css"; // Import the CSS file for Footer styles
+import { Link } from "react-router-dom";
+import "../styles/Footer.css"; 
 
 
 const Footer = () => {
@@ -8,7 +9,7 @@ const Footer = () => {
     <footer className="footer">
       {/* Left Section: About Us */}
       <div className="footer-left">
-      <h4><a href="/about-us" className="footer-about-link">About Us</a></h4>
+      <h4><Link to="/aboutUs" className="footer-about-link">About Us</Link></h4>
         <p className="footer-text">
             Streamit is your ultimate destination for 
              streaming movies and TV shows.</p>
@@ -38,16 +39,25 @@ const Footer = () => {
 
       {/* Right Section: Streamit App */}
       <div className="footer-right">
-        <h4>Streamit App</h4>
-        <div className="app-links">
-          <a href="https://apps.apple.com" target="_blank" rel="noopener noreferrer">
-            <img src="appstore.png" alt="App Store" className="app-icon" />
-          </a>
-          <a href="https://play.google.com" target="_blank" rel="noopener noreferrer">
-            <img src="playstore.png" alt="Google Play" className="app-icon" />
-          </a>
-        </div>
-      </div>
+  <h4>Streamit App</h4>
+  <div className="app-links">
+    <a href="https://apps.apple.com" target="_blank" rel="noopener noreferrer" className="app-link">
+      <svg className="app-icon" viewBox="0 0 120 40" xmlns="http://www.w3.org/2000/svg">
+        <rect className="app-button" width="120" height="40" rx="10"/>
+        <text className="app-text" x="40" y="30">App Store</text>
+        <circle className="app-icon-circle" cx="20" cy="20" r="10"/>
+      </svg>
+    </a>
+
+    <a href="https://play.google.com" target="_blank" rel="noopener noreferrer" className="app-link">
+      <svg className="app-icon" viewBox="0 0 150 50" xmlns="http://www.w3.org/2000/svg">
+        <rect className="app-button" width="150" height="50" rx="10"/>
+        <text className="app-text" x="55" y="32">Google Play</text>
+        <polygon className="play-icon" points="15,10 35,25 15,40"/>
+      </svg>
+    </a>
+  </div>
+</div>
     </footer>
   );
 };

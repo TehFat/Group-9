@@ -4,10 +4,10 @@ body {
 }
 .playlist-page {
   min-height: 80vh;
-  background: linear-gradient(to top right, #3a3a4a, #4a4a5a, #5a6a7a),
+  background: linear-gradient(to top right, #040c13, #0f1a24, #202e3b),
     radial-gradient(
       circle at top right,
-      rgba(255, 255, 255, 0.1),
+      rgba(255, 255, 255, 0.3),
       transparent 70%
     );
   font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
@@ -17,7 +17,7 @@ body {
 }
 .playlist-container {
   display: flex;
-  gap: 40px;
+  gap: 20px;
   flex-wrap: wrap;
   margin: 0 40px 0 40px;
 }
@@ -25,6 +25,7 @@ body {
   color: white;
   margin: 15px 0 30px 50px;
   font-weight: 100;
+  z-index: 10;
 }
 .empty-playlist {
   color: white;
@@ -32,31 +33,40 @@ body {
   margin: 15px 0 30px 50px;
 }
 .playlist-movie-card {
-  width: 225px;
-  max-height: 400px;
+  width: 200px;
+  max-height: 350px;
   margin: 10px;
   background-color: transparent;
   position: relative;
+  display: flex;
+  flex-direction: column;
 }
 .playlist-movie-poster {
   width: 100%;
   height: 300px;
-  object-fit: cover;
+  object-fit: fill;
   box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  display: block;
 }
 .rating-button {
   width: 45px;
   height: 45px;
+  font-weight: bold;
   border-radius: 50px;
   border: none;
-  color: rgb(109, 116, 13);
-  background-color: rgb(255, 234, 0);
+  color: rgb(255, 255, 255);
+  background-color: rgb(224, 0, 0);
   position: absolute;
-  top: 15.6rem;
+  top: 15.4rem;
   right: 5px;
   z-index: 10;
   cursor: pointer;
   box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.1);
+  transition: 0.2s ease-in-out;
+}
+.rating-button:hover {
+  background-color: rgb(255, 27, 27);
 }
 .playlist-movie-title {
   font-size: 14px;
@@ -80,6 +90,27 @@ body {
   align-items: center;
   gap: 10px;
 }
+.heart-button {
+  width: 30px;
+  height: 30px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  transition: transform 0.2s ease-in-out;
+  position: absolute;
+  right: 40px;
+}
+.heart-button svg {
+  fill: #ccc;
+  transition: fill 0.2s ease-in-out;
+}
+.heart-button.liked svg {
+  fill: red;
+}
+.heart-button:active {
+  transform: scale(1.1);
+}
 .playlist-delete-button {
   background: none;
   border-radius: 50px;
@@ -101,4 +132,140 @@ body {
   height: 25px;
   background-color: transparent;
   border-radius: 50px;
+}
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 11;
+}
+.modal-content {
+  position: relative;
+  padding: 30px;
+  border-radius: 10px;
+  text-align: center;
+  border: 3px solid rgb(61, 61, 89);
+  background: linear-gradient(to top right, #1a2a3a, #2a3a4a, #3a4a5a),
+    radial-gradient(
+      circle at top right,
+      rgba(255, 255, 255, 0.1),
+      transparent 70%
+    );
+
+  h3 {
+    margin: 0 0 25px 0;
+    color: white;
+  }
+}
+.rating-buttons {
+  display: flex;
+  gap: 5px;
+  justify-content: center;
+}
+.rating-buttons button {
+  width: 40px;
+  height: 40px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  text-align: center;
+  border: none;
+  border-radius: 10px;
+  background-color: #5e5e6b;
+  color: white;
+  transition: all 0.3s ease-in-out;
+}
+.rating-buttons button:hover {
+  background-color: #70777e;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+.playlist-close-button {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 6px 6px 0 0;
+  background-color: rgb(126, 7, 7);
+  border: none;
+  border-radius: 5px;
+  color: white;
+  transition: 0.2s ease-in-out;
+}
+.playlist-close-button:hover {
+  background-color: rgb(171, 8, 8);
+}
+
+@media (max-width: 768px) {
+  .playlist-container {
+    margin: 0 10px; /* Reduce margin for smaller screens */
+  }
+
+  .playlist-header {
+    font-size: 20px; /* Adjust font size for smaller screens */
+    margin: 15px 0 20px 10px; /* Reduce margin for smaller screens */
+  }
+
+  .empty-playlist {
+    font-size: 16px; /* Adjust font size for smaller screens */
+    margin: 15px 0 20px 10px; /* Reduce margin for smaller screens */
+  }
+
+  .playlist-movie-card {
+    width: 150px; /* Reduce card width for smaller screens */
+    max-height: 300px; /* Reduce card height for smaller screens */
+  }
+
+  .playlist-movie-poster {
+    height: 250px; /* Reduce poster height for smaller screens */
+  }
+
+  .rating-button {
+    top: 12.6rem; /* Adjust position for smaller screens */
+    width: 35px;
+    height: 35px;
+    font-size: 10px;
+  }
+
+  .modal-content {
+    padding: 15px; /* Reduce padding for smaller screens */
+  }
+
+  .rating-buttons button {
+    width: 35px; /* Reduce button size for smaller screens */
+    height: 35px;
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .playlist-movie-card {
+    width: 120px; /* Further reduce card width for mobile screens */
+    max-height: 250px; /* Further reduce card height for mobile screens */
+  }
+
+  .playlist-movie-poster {
+    height: 200px; /* Further reduce poster height for mobile screens */
+  }
+
+  .rating-button {
+    top: 11rem; /* Adjust position for mobile screens */
+    width: 30px;
+    height: 30px;
+    right: 5px;
+    top: 10.2rem;
+    font-size: 8px;
+  }
+
+  .playlist-movie-title {
+    font-size: 12px; /* Reduce font size for mobile screens */
+  }
+
+  .playlist-movie-year {
+    font-size: 12px; /* Reduce font size for mobile screens */
+  }
 }

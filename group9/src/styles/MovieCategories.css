@@ -1,6 +1,14 @@
 /* General Page Styles */
 .movies-page {
-  background-image: url("../images/bg pic.jpg");
+   min-height: 80vh;
+    background: linear-gradient(to top right, #040c13, #0f1a24, #202e3b),
+      radial-gradient(
+        circle at top right,
+        rgba(255, 255, 255, 0.3),
+        transparent 70%
+      );
+   font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+      "Lucida Sans", Arial, sans-serif;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -128,7 +136,7 @@
   cursor: pointer;
   padding: 5px;
   font-size: 1.5rem;
-  color: #d00000; /* Icon color */
+  color: #d00000;
   transition: color 0.3s ease;
 }
 
@@ -138,7 +146,6 @@
 
 .info-icon {
   font-size: 1.5rem; /* Icon size */
-  margin: 0 auto; /* Center the icon */
 }
 
 /* Close button for modal */

@@ -52,17 +52,19 @@ const Playlist = ({ playlist, setPlaylist }) => {
     setIsModalOpen(false);
   };
   return (
-    <div className="playlist-page">
+    <main className="playlist-page">
+      <header>
       <h2 className="playlist-header">My Playlist</h2>
       <h3 className="empty-playlist">
         {" "}
         {playlist.length === 0 ? "Playlist is empty" : ""}{" "}
       </h3>
-      <div className="playlist-container">
+      </header>
+      <section className="playlist-container">
         {playlist.map((movie) => {
           const isLiked = likedMovies[movie.Title] || false;
           return (
-            <div className="playlist-movie-card" key={movie.Title}>
+            <article className="playlist-movie-card" key={movie.Title}>
               <img src={movie.Poster} className="playlist-movie-poster" />
               <button
                 className="rating-button"
@@ -95,14 +97,15 @@ const Playlist = ({ playlist, setPlaylist }) => {
                 >
                   <img
                     className="delete-icon"
+                    alt="delete-icon"
                     src="https://cdn-icons-png.flaticon.com/128/9790/9790368.png"
                   />
                 </button>
               </div>
-            </div>
+            </article>
           );
         })}
-      </div>
+      </section>
       {isModalOpen && (
         <div className="modal-overlay">
           <div className="playlist-modal-content">
@@ -123,7 +126,7 @@ const Playlist = ({ playlist, setPlaylist }) => {
           </div>
         </div>
       )}
-    </div>
+    </main>
   );
 };
 

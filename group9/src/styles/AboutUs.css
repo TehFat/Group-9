@@ -2,7 +2,16 @@
 .about-us-container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 20px;
+  padding: 40px;
+  background: linear-gradient(to top right, #040c13, #0f1a24, #202e3b),
+          radial-gradient(
+            circle at top right,
+            rgba(255, 255, 255, 0.3),
+            transparent 70%
+          );
+          color: white;
+          font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
 }
 
 .about-us-title {
@@ -10,7 +19,7 @@
   margin-bottom: 30px;
   font-size: 28px;
   font-weight: bold;
-  color: #333;
+  color: white;
 }
 
 .about-us-section {
@@ -21,7 +30,7 @@
   margin-bottom: 15px;
   font-size: 22px;
   font-weight: bold;
-  color: #444;
+  color: white;
 }
 
 /* Feature List */
@@ -41,17 +50,6 @@
 
 .our-team li {
   margin-bottom: 10px;
-}
-
-.our-team a {
-  text-decoration: none;
-  color: #007bff; /* GitHub link color */
-  font-weight: bold;
-  transition: color 0.3s ease;
-}
-
-.our-team a:hover {
-  color: #ff4500; /* Change color on hover */
 }
 
 /* Responsive Design */
@@ -86,12 +84,12 @@
 }
 
 .github-link svg {
-  fill: #333; /* Dark color for the GitHub icon */
+  fill: #ffff; /* Dark color for the GitHub icon */
   transition: fill 0.3s ease;
 }
 
 .github-link:hover svg {
-  fill: #007bff; /* Blue color when hovered */
+  fill: red; /* Blue color when hovered */
 }
 
 .our-team li {

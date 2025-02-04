@@ -40,7 +40,7 @@ const MovieTrailers = () => {
   };
 
   return (
-    <div className="trailer-container">
+    <article className="trailer-container">
       <h2 className="section-heading">Movie Trailers</h2>
       <div className="carousel-container">
         {/* Scroll Left Button */}
@@ -69,7 +69,7 @@ const MovieTrailers = () => {
           ▶
         </button>
       </div>
-    </div>
+    </article>
   );
 };
 

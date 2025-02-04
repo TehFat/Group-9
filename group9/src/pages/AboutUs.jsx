@@ -3,7 +3,7 @@ import '../styles/AboutUs.css';
 
 function AboutUs() {
   return (
-    <div className="about-us-container">
+    <main className="about-us-container">
       <h1 className="about-us-title">About MovieMagic</h1>
 
       <section className="app-origin">
@@ -75,7 +75,7 @@ function AboutUs() {
           We're constantly evolving and improving MovieMagic. Our vision for the future includes expanding our global movie database, introducing virtual reality previews, and creating a vibrant community of movie enthusiasts.
         </p>
       </section>
-    </div>
+    </main>
   );
 }
 

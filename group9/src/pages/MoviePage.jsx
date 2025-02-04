@@ -41,15 +41,15 @@ const MoviesPage = ({ onAddToPlaylist }) => {
   };
 
   return (
-    <div className="movies-page">
+    <main className="movies-page">
       <h1 className="page-title">Explore Movies</h1>
 
       {categories.map((category) => (
-        <div key={category} className="category-section">
+        <section key={category} className="category-section">
           <h2 className="category-title">{category}</h2>
           <div className="movies-row">
             {moviesByCategory[category]?.map((movie) => (
-              <div key={movie.imdbID} className="movie-card">
+              <article key={movie.imdbID} className="movie-card">
                 <img
                   src={movie.Poster}
                   alt={movie.Title}
@@ -68,10 +68,10 @@ const MoviesPage = ({ onAddToPlaylist }) => {
                     onAddToPlaylist={onAddToPlaylist}
                   />
                 </div>
-              </div>
+              </article>
             ))}
           </div>
-        </div>
+        </section>
       ))}
 
       {/* Modal for Movie Details */}
@@ -97,7 +97,7 @@ const MoviesPage = ({ onAddToPlaylist }) => {
           </div>
         </div>
       )}
-    </div>
+    </main>
   );
 };
 

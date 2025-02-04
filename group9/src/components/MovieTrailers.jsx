@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import ReactPlayer from "react-player";
-import "../styles/Home.css"; 
+import "../styles/Home.css";
 
 const trailers = [
   { title: "The Shawshank Redemption", url: "https://www.youtube.com/watch?v=6hB3S9bIaco" },
@@ -13,15 +13,7 @@ const trailers = [
 ];
 
 const MovieTrailers = () => {
-  const [currentTrailerIndex, setCurrentTrailerIndex] = useState(0);
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentTrailerIndex((prevIndex) => (prevIndex + 1) % trailers.length);
-    }, 20000); // Change trailer every 20 seconds
-
-    return () => clearInterval(interval);
-  }, []);
+  const [playingIndex, setPlayingIndex] = useState(null); // Track which trailer is playing
 
   // Function for scrolling left
   const scrollLeft = () => {
@@ -39,6 +31,11 @@ const MovieTrailers = () => {
     }
   };
 
+  // Function to handle trailer click (play the selected trailer)
+  const handleTrailerClick = (index) => {
+    setPlayingIndex(index); // Set the clicked trailer to play
+  };
+
   return (
     <article className="trailer-container">
       <h2 className="section-heading">Movie Trailers</h2>
@@ -51,10 +48,15 @@ const MovieTrailers = () => {
         {/* Trailer Carousel */}
         <div id="trailer-carousel" className="carousel">
           {trailers.map((trailer, index) => (
-            <div key={index} className="carousel-item">
+            <div
+              key={index}
+              className="carousel-item"
+              onClick={() => handleTrailerClick(index)} // Trigger play on trailer click
+              style={{ cursor: "pointer" }} // Indicate to user that this is clickable
+            >
               <ReactPlayer
                 url={trailer.url}
-                playing={currentTrailerIndex === index}
+                playing={playingIndex === index} // Only play the clicked trailer
                 controls
                 width="100%"
                 height="400px"

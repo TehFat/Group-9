@@ -65,7 +65,7 @@ const Playlist = ({ playlist, setPlaylist }) => {
           const isLiked = likedMovies[movie.Title] || false;
           return (
             <article className="playlist-movie-card" key={movie.Title}>
-              <img src={movie.Poster} className="playlist-movie-poster" />
+              <img src={movie.Poster} alt={movie.Title || "Movie poster"} className="playlist-movie-poster" />
               <button
                 className="rating-button"
                 onClick={() => handleRateClick(movie.Title)}

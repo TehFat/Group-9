@@ -14,9 +14,12 @@ const Navbar = () => {
   return (
     <nav className="navbar">
       {/* Logo */}
-      <h1 className="logo"><span className="highlight-m">M</span>ovieMagic</h1>
+      <h1 className="logo">
+        <span className="highlight-m">M</span>ovieMagic
+      </h1>
 
       {/* Navigation Links */}
+      {/* navigation should be in a list and use NavLink from the router */}
       <div className="nav-links">
         <Link to="/" className="nav-item">
           <FaHome className="nav-icon" />
@@ -33,8 +36,8 @@ const Navbar = () => {
       </div>
 
       {/* Subscribe Button */}
-      <button 
-        className={`subscribe-btn ${isSubscribed ? "subscribed" : ""}`} 
+      <button
+        className={`subscribe-btn ${isSubscribed ? "subscribed" : ""}`}
         onClick={toggleSubscription}
       >
         {isSubscribed ? "Subscribed" : "Subscribe"}

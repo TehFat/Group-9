@@ -1,11 +1,17 @@
 import React, { useState, useEffect } from "react";
 import { fetchMoviesByGenre, fetchMovieDetails } from "../api/movieApi"; // Ensure correct paths
 import AddToPlaylistButton from "../components/AddToPlaylistButton"; // Import button
-import { FaInfoCircle } from 'react-icons/fa'; // Import the Info icon
+import { FaInfoCircle } from "react-icons/fa"; // Import the Info icon
 import "../styles/MovieCategories.css";
 
 const MoviesPage = ({ onAddToPlaylist }) => {
-  const [categories] = useState(["Action", "Comedy", "Drama", "Horror", "Sci-Fi"]);
+  const [categories] = useState([
+    "Action",
+    "Comedy",
+    "Drama",
+    "Horror",
+    "Sci-Fi",
+  ]);
   const [moviesByCategory, setMoviesByCategory] = useState({});
   const [selectedMovie, setSelectedMovie] = useState(null); // Movie for modal
   const [isModalOpen, setIsModalOpen] = useState(false); // Modal state
@@ -13,12 +19,14 @@ const MoviesPage = ({ onAddToPlaylist }) => {
   // Fetch movies by category
   useEffect(() => {
     const fetchAllCategories = async () => {
-      const movieData = {};
-      for (const category of categories) {
-        const movies = await fetchMoviesByGenre(category);
-        movieData[category] = movies || [];
-      }
-      setMoviesByCategory(movieData);
+      // refactor to use Promise.all
+      const movieData = await Promise.all(
+        categories.map(async (category) => {
+          const movies = await fetchMoviesByGenre(category);
+          return { [category]: movies || [] };
+        })
+      );
+      setMoviesByCategory(Object.assign({}, ...movieData));
     };
     fetchAllCategories();
   }, [categories]);
@@ -87,9 +95,15 @@ const MoviesPage = ({ onAddToPlaylist }) => {
             </div>
             <div className="modal-right">
               <h3>{selectedMovie.Title}</h3>
-              <p><strong>Writer:</strong> {selectedMovie.Writer}</p>
-              <p><strong>Year:</strong> {selectedMovie.Year}</p>
-              <p><strong>Description:</strong> {selectedMovie.Plot}</p>
+              <p>
+                <strong>Writer:</strong> {selectedMovie.Writer}
+              </p>
+              <p>
+                <strong>Year:</strong> {selectedMovie.Year}
+              </p>
+              <p>
+                <strong>Description:</strong> {selectedMovie.Plot}
+              </p>
               <button onClick={closeModal} className="close-modal-button">
                 Close
               </button>

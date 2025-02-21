@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from 'react';
-import { fetchMoviesByGenre, fetchMovieDetails } from '../api/movieApi'; 
-import { FaInfoCircle } from 'react-icons/fa'; // Import the Info icon
-import '../styles/MovieCategories.css';
+import React, { useState, useEffect } from "react";
+import { fetchMoviesByGenre, fetchMovieDetails } from "../api/movieApi";
+import { FaInfoCircle } from "react-icons/fa"; // Import the Info icon
+import "../styles/MovieCategories.css";
 
 const MovieCategories = () => {
   const [movies, setMovies] = useState([]);
@@ -24,12 +24,11 @@ const MovieCategories = () => {
   };
 
   useEffect(() => {
-    loadMovies('action'); 
+    loadMovies("action");
   }, []);
 
-  const handleGenreChange = (genre) => {
-    loadMovies(genre);
-  };
+  // can be simplified to a single line
+  const handleGenreChange = (genre) => loadMovies(genre);
 
   const handleMovieSelect = async (imdbID) => {
     setLoading(true);
@@ -37,7 +36,7 @@ const MovieCategories = () => {
     try {
       const details = await fetchMovieDetails(imdbID);
       setSelectedMovie(details);
-      setIsModalOpen(true); 
+      setIsModalOpen(true);
     } catch (err) {
       setError("Failed to load movie details. Please try again.");
     } finally {
@@ -46,7 +45,7 @@ const MovieCategories = () => {
   };
 
   const closeModal = () => {
-    setIsModalOpen(false); 
+    setIsModalOpen(false);
     setSelectedMovie(null);
   };
 
@@ -57,7 +56,7 @@ const MovieCategories = () => {
     <section className="movie-categories-container">
       <h2>Movie Categories</h2>
       <nav className="genre-buttons">
-        {['action', 'comedy', 'drama', 'horror'].map(genre => (
+        {["action", "comedy", "drama", "horror"].map((genre) => (
           <button key={genre} onClick={() => handleGenreChange(genre)}>
             {genre.charAt(0).toUpperCase() + genre.slice(1)}
           </button>
@@ -68,9 +67,16 @@ const MovieCategories = () => {
         <h3>Movies</h3>
         {movies.map((movie) => (
           <article key={movie.imdbID} className="movie-item">
-            <img src={movie.Poster} alt={movie.Title} className="movie-poster" />
+            <img
+              src={movie.Poster}
+              alt={movie.Title}
+              className="movie-poster"
+            />
             <h4 className="movie-name">{movie.Title}</h4>
-            <button onClick={() => handleMovieSelect(movie.imdbID)} className="movie-info-icon">
+            <button
+              onClick={() => handleMovieSelect(movie.imdbID)}
+              className="movie-info-icon"
+            >
               <FaInfoCircle className="info-icon" />
             </button>
           </article>
@@ -82,13 +88,23 @@ const MovieCategories = () => {
         <div className="movie-modal">
           <div className="modal-content">
             <figure className="modal-left">
-              <img src={selectedMovie.Poster} alt={selectedMovie.Title} className="modal-poster" />
+              <img
+                src={selectedMovie.Poster}
+                alt={selectedMovie.Title}
+                className="modal-poster"
+              />
             </figure>
             <section className="modal-right">
               <h3>{selectedMovie.Title}</h3>
-              <p><strong>Writer:</strong> {selectedMovie.Writer}</p>
-              <p><strong>Year:</strong> {selectedMovie.Year}</p>
-              <p><strong>Description:</strong> {selectedMovie.Plot}</p>
+              <p>
+                <strong>Writer:</strong> {selectedMovie.Writer}
+              </p>
+              <p>
+                <strong>Year:</strong> {selectedMovie.Year}
+              </p>
+              <p>
+                <strong>Description:</strong> {selectedMovie.Plot}
+              </p>
               <button onClick={closeModal}>Close</button>
             </section>
           </div>

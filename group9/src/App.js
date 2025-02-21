@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Navbar from "./components/Navbar"; 
-import Home from "./pages/Home"; 
-import Footer from "./components/Footer"; 
-import Playlist from "./pages/Playlist"; 
-import AboutUs from "./pages/AboutUs"; 
+import Navbar from "./components/Navbar";
+import Home from "./pages/Home";
+import Footer from "./components/Footer";
+import Playlist from "./pages/Playlist";
+import AboutUs from "./pages/AboutUs";
 import MoviesPage from "./pages/MoviePage";
 
 const App = () => {
@@ -22,28 +22,29 @@ const App = () => {
 
   return (
     <Router>
-      <div className="app-container">
-       
-        <Navbar />
+      {/* this div and classname isnt used anywhere, can be removed */}
 
-       
-        <Routes>
-          
-          <Route path="/" element={<Home onAddToPlaylist={handleAddToPlaylist} />} />
+      <Navbar />
 
-         
-          <Route path="/playlist" element={<Playlist playlist={playlist} setPlaylist={setPlaylist} />} />
-          <Route path="/movies" element={<MoviesPage onAddToPlaylist={handleAddToPlaylist} />} />
+      <Routes>
+        <Route
+          path="/"
+          element={<Home onAddToPlaylist={handleAddToPlaylist} />}
+        />
 
+        <Route
+          path="/playlist"
+          element={<Playlist playlist={playlist} setPlaylist={setPlaylist} />}
+        />
+        <Route
+          path="/movies"
+          element={<MoviesPage onAddToPlaylist={handleAddToPlaylist} />}
+        />
 
+        <Route path="/aboutUs" element={<AboutUs />} />
+      </Routes>
 
-          
-          <Route path="/aboutUs" element={<AboutUs />} />
-        </Routes>
-
-        
-        <Footer />
-      </div>
+      <Footer />
     </Router>
   );
 };

@@ -132,26 +132,27 @@
 
 // export default Playlist;
 
-import React from "react";
+// better to use named exports instead of using React
+import React, { useEffect, useState } from "react";
 import "../styles/Playlist.css";
 
 const Playlist = ({ playlist, setPlaylist }) => {
-  const [likedMovies, setLikedMovies] = React.useState(() => {
+  const [likedMovies, setLikedMovies] = useState(() => {
     const savedLikedMovies = localStorage.getItem("likedMovies");
     return savedLikedMovies ? JSON.parse(savedLikedMovies) : {};
   });
 
-  const [isModalOpen, setIsModalOpen] = React.useState(false);
-  const [selectedRatings, setSelectedRatings] = React.useState({});
-  const [currentMovieTitle, setCurrentMovieTitle] = React.useState("");
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [selectedRatings, setSelectedRatings] = useState({});
+  const [currentMovieTitle, setCurrentMovieTitle] = useState("");
 
-  React.useEffect(() => {
+  useEffect(() => {
     if (playlist.length > 0) {
       localStorage.setItem("playlist", JSON.stringify(playlist));
     }
   }, [playlist]);
 
-  React.useEffect(() => {
+  useEffect(() => {
     const savedPlaylist = localStorage.getItem("playlist");
     if (savedPlaylist) {
       setPlaylist(JSON.parse(savedPlaylist));
@@ -191,10 +192,10 @@ const Playlist = ({ playlist, setPlaylist }) => {
     <main className="playlist-page">
       <header>
         <h2 className="playlist-header">My Playlist</h2>
-        <h3 className="empty-playlist">
-          {" "}
-          {playlist.length === 0 ? "Playlist is empty" : ""}{" "}
-        </h3>
+        {/* should only have one return if one is empty */}
+        {playlist.length === 0 && (
+          <h3 className="empty-playlist">Playlist is empty</h3>
+        )}
       </header>
       <section className="playlist-container">
         {playlist.map((movie) => {
@@ -210,7 +211,6 @@ const Playlist = ({ playlist, setPlaylist }) => {
                 className="rating-button"
                 onClick={() => handleRateClick(movie.Title)}
               >
-                {" "}
                 {selectedRatings[movie.Title] || "Rate"}
               </button>
               <h3 className="playlist-movie-title">{movie.Title}</h3>
@@ -221,7 +221,6 @@ const Playlist = ({ playlist, setPlaylist }) => {
                   className={`heart-button ${isLiked ? "liked" : ""}`}
                   onClick={() => handleLike(movie.Title)}
                 >
-                  {" "}
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 24 24"
@@ -271,4 +270,3 @@ const Playlist = ({ playlist, setPlaylist }) => {
 };
 
 export default Playlist;
-

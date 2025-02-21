@@ -3,81 +3,45 @@ import axios from "axios";
 const API_KEY = process.env.REACT_APP_OMDB_API_KEY;
 const BASE_URL = "https://www.omdbapi.com/";
 
-export const fetchMovies = async (query) => {
+// can be refactored and simplified to these functions
+const fetchFromApi = async (params) => {
   try {
     const response = await axios.get(BASE_URL, {
-      params: {
-        apikey: API_KEY,
-        s: query,
-      },
-    });
-    return response.data.Search || [];
-  } catch (error) {
-    console.error("Error fetching movies:", error);
-    return [];
-  }
-};
-
-export const fetchTopRatedMovies = async () => {
-  try {
-    
-    const topRatedTitles = [
-      "The Shawshank Redemption",
-      "The Godfather",
-      "The Dark Knight",
-      "Pulp Fiction",
-      "Inception",
-      "Interstellar",
-      "The Prestige"
-
-    ];
-
-    const promises = topRatedTitles.map((title) =>
-      axios.get(BASE_URL, {
-        params: {
-          apikey: API_KEY,
-          t: title,
-        },
-      })
-    );
-
-    const responses = await Promise.all(promises);
-    return responses.map((response) => response.data);
-  } catch (error) {
-    console.error("Error fetching top-rated movies:", error);
-
-    return [];
-  }
-};
-
-export const fetchMoviesByGenre = async (genre) => {
-  try {
-    const response = await axios.get(BASE_URL, {
-      params: {
-        apikey: API_KEY,
-        s: genre, // Query by genre
-      },
-    });
-    return response.data.Search || [];
-  } catch (error) {
-    console.error(`Error fetching ${genre} movies:`, error);
-    return [];
-  }
-};
-
-export const fetchMovieDetails = async (imdbID) => {
-  try {
-    const response = await axios.get(BASE_URL, {
-      params: {
-        apikey: API_KEY,
-        i: imdbID, // Fetch by IMDb ID
-      },
+      params: { apikey: API_KEY, ...params },
     });
     return response.data;
   } catch (error) {
-    console.error(`Error fetching movie details for ${imdbID}:`, error);
+    console.error("Error fetching data from API:", error);
     return null;
   }
 };
 
-  
+export const fetchMovies = async (query) => {
+  const data = await fetchFromApi({ s: query });
+  return data?.Search || [];
+};
+
+export const fetchTopRatedMovies = async () => {
+  const topRatedTitles = [
+    "The Shawshank Redemption",
+    "The Godfather",
+    "The Dark Knight",
+    "Pulp Fiction",
+    "Inception",
+    "Interstellar",
+    "The Prestige",
+  ];
+
+  const promises = topRatedTitles.map((title) => fetchFromApi({ t: title }));
+  const responses = await Promise.all(promises);
+  return responses.filter((response) => response !== null);
+};
+
+export const fetchMoviesByGenre = async (genre) => {
+  const data = await fetchFromApi({ s: genre });
+  return data?.Search || [];
+};
+
+export const fetchMovieDetails = async (imdbID) => {
+  return await fetchFromApi({ i: imdbID });
+};
